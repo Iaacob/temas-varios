@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useContext } from "react";
+import { View } from "react-native";
+
+import { EmergenciaProvider } from "./src/Context/EmergenciaContext";
+import { PantallaContext, PantallaProvider } from "./src/Context/PantallaContext.js";
+
+import PantallaInicio from './src/Components/PantallaInicio.js';
+import PantallaEmergencia from './src/Components/PantallaEmergencia.js';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PantallaProvider>
+      <EmergenciaProvider>
+        <View style={styles.container}>
+          <PantallaCorrespondiente/>
+        </View>
+      </EmergenciaProvider>
+    </PantallaProvider>
   );
 }
 
-const styles = StyleSheet.create({
+function PantallaCorrespondiente(){
+  const {pantalla} = useContext(PantallaContext);
+  switch(pantalla){
+    case "inicio":
+      return (<PantallaInicio/>);
+    case "emergencia":
+      return (<PantallaEmergencia/>);
+  }
+}
+
+const styles = {
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-});
+  }
+};
