@@ -103,7 +103,7 @@ const styles = {
         padding: 3
     },
     button: {
-        width: "5%",
+        width: "2.5%",
         aspectRatio: 1,
         margin: 3
     }

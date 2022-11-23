@@ -1,8 +1,11 @@
 import { React, useContext } from 'react';
 import { View, Text } from 'react-native';
-import TextButton from '../Components/TextButton.js';
+
 import { EmergenciaContext } from "../Context/EmergenciaContext.js";
 import { PantallaContext } from "../Context/PantallaContext.js";
+
+import TextButton from '../Components/TextButton.js';
+import Clima from "../Components/Clima.js";
 
 export default function PantallaInicio() {
     const {emergencia} = useContext(EmergenciaContext);
@@ -17,12 +20,16 @@ export default function PantallaInicio() {
             <View style={styles.container}>
                 <TextButton style={styles.button} onClick={() => setPantalla("contactos")}>Ver contactos</TextButton>
             </View>
+            <View style={styles.container}>
+                <Clima/>
+            </View>
         </>
     );
 }
 const styles = {
     container: {
-        flexDirection: "row"
+        flexDirection: "row",
+        margin: "1%"
     },
     text: {
         margin: 3
