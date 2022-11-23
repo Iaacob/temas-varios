@@ -1,6 +1,6 @@
 import { React, useContext, useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
-import TextButton from './TextButton.js';
+import TextButton from '../Components/TextButton.js';
 import { EmergenciaContext } from "../Context/EmergenciaContext.js";
 import { PantallaContext } from "../Context/PantallaContext.js";
 

@@ -4,7 +4,7 @@ import {Svg, Path} from 'react-native-svg';
 
 export default function SvgButton(params) {
     return (
-        <View style={styles.container(params.size == undefined ? "11%" : params.size, params.margin == undefined ? 0 : params.margin)}>
+        <View style={params.style}>
             <View style={styles.button(params.color == undefined ? "#9DDCE0" : params.color, params.aspectRatio == undefined ? 1 : params.aspectRatio)} onClick={params.onClick}>
                 <Svg viewBox={params.viewBox == undefined ? "0 0 16 16" : params.viewBox}>
                     <Path 

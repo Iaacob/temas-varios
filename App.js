@@ -4,8 +4,9 @@ import { View } from "react-native";
 import { EmergenciaProvider } from "./src/Context/EmergenciaContext";
 import { PantallaContext, PantallaProvider } from "./src/Context/PantallaContext.js";
 
-import PantallaInicio from './src/Components/PantallaInicio.js';
-import PantallaEmergencia from './src/Components/PantallaEmergencia.js';
+import PantallaInicio from './src/Pantallas/PantallaInicio.js';
+import PantallaEmergencia from './src/Pantallas/PantallaEmergencia.js';
+import PantallaContactos from './src/Pantallas/PantallaContactos.js';
 
 export default function App() {
   return (
@@ -26,6 +27,8 @@ function PantallaCorrespondiente(){
       return (<PantallaInicio/>);
     case "emergencia":
       return (<PantallaEmergencia/>);
+      case "contactos":
+        return (<PantallaContactos/>);
   }
 }
 
