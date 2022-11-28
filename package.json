@@ -12,6 +12,7 @@
     "@react-native-community/geolocation": "^3.0.3",
     "expo": "~47.0.5",
     "expo-cli": "^6.0.8",
+    "expo-location": "^15.0.1",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
     "react-native": "0.70.5",
