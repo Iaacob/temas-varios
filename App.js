@@ -3,6 +3,7 @@ import { View } from "react-native";
 
 import { EmergenciaProvider } from "./src/Context/EmergenciaContext";
 import { PantallaContext, PantallaProvider } from "./src/Context/PantallaContext.js";
+import { ImagePickerr } from "./src/Components/ImagePicker";
 
 import PantallaInicio from './src/Pantallas/PantallaInicio.js';
 import PantallaEmergencia from './src/Pantallas/PantallaEmergencia.js';
@@ -29,6 +30,8 @@ function PantallaCorrespondiente(){
       return (<PantallaEmergencia/>);
       case "contactos":
         return (<PantallaContactos/>);
+      case "background": 
+        return (<ImagePickerr/>)
   }
 }
 
