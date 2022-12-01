@@ -5,7 +5,7 @@ import { EmergenciaContext } from "../Context/EmergenciaContext.js";
 import { PantallaContext } from "../Context/PantallaContext.js";
 
 import TextButton from '../Components/TextButton.js';
-import Clima from "../Components/Clima.js";
+import Ubicacion from "../Components/Ubicacion.js";
 
 export default function PantallaInicio() {
     const {emergencia} = useContext(EmergenciaContext);
@@ -21,7 +21,7 @@ export default function PantallaInicio() {
                 <TextButton style={styles.button} onClick={() => setPantalla("contactos")}>Ver contactos</TextButton>
             </View>
             <View style={styles.container}>
-                <Clima/>
+                <Ubicacion/>
             </View>
         </>
     );
