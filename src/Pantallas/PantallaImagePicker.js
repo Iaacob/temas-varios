@@ -3,7 +3,7 @@ import { Button, Image, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import BackgroundContext from '../Context/BackgroundContext';
 
-export default function ImagePickerr() {
+export default function PantallaImagePicker() {
     const {background, setBackground} = useContext(BackgroundContext);
 
     const pickImage = async () => {
@@ -25,8 +25,8 @@ export default function ImagePickerr() {
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button title="Pick an image from camera roll" onPress={pickImage} />
-        {background && <Image source={{ uri: background }} style={{ width: 200, height: 200 }} />}
+            <Button title="Pick an image from camera roll" onPress={pickImage} />
+            {background && <Image source={{ uri: background }} style={{ width: 200, height: 200 }} />}
         </View>
     );
 }
