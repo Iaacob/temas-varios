@@ -8,15 +8,18 @@ import PantallaInicio from './src/Pantallas/PantallaInicio.js';
 import PantallaEmergencia from './src/Pantallas/PantallaEmergencia.js';
 import PantallaContactos from './src/Pantallas/PantallaContactos.js';
 import PantallaImagePicker from "./src/Pantallas/PantallaImagePicker.js";
+import { UbicacionProvider } from "./src/Context/UbicacionContext";
 
 export default function App() {
   return (
     <PantallaProvider>
-      <EmergenciaProvider>
-        <View style={styles.container}>
-          <PantallaCorrespondiente/>
-        </View>
-      </EmergenciaProvider>
+      <UbicacionProvider>
+        <EmergenciaProvider>
+          <View style={styles.container}>
+            <PantallaCorrespondiente/>
+          </View>
+        </EmergenciaProvider>
+      </UbicacionProvider>
     </PantallaProvider>
   );
 }

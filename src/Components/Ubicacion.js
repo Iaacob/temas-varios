@@ -1,55 +1,21 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Vibration, ImageBackground, ScrollView } from 'react-native';
-import axios from 'axios';
-import * as Location from 'expo-location';
+import React, { useContext, useState } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-web';
 import SvgButton from "./SvgButton.js";
+import { UbicacionContext } from '../Context/UbicacionContext.js';
 
 export default function Ubicacion() {
-  const [location, setLocation] = useState({latitude: 0, longitude: 0, coords:{}});
-  const [clima, setClima] = useState({});
-
-  const getLocation = () => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      let {coords} = await Location.getCurrentPositionAsync();
-
-      setLocation({
-        latitude: notNull(coords.latitude),
-        longitude: notNull(coords.longitude),
-        coords: coords
-      });
-
-    })();
-  };
-
-  const chLocation = (r, v) => {
-    let newObj = structuredClone(location);
-    newObj[r] = v;
-    setLocation(newObj);
-  }
-
-  const traerClima = async () => {
-    try{
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=4a5e740c6f08a4f54f1c87f1fe6b7bd3&units=metric`)
-        if(response.data){ 
-          setClima(response.data);
-        }
-    }
-    catch(error){
-      setClima({error: error});
-    }
-  };
+  const {location, chLocation, getLocation} = useContext(UbicacionContext);
 
   return (
     <View>
       <View style={styles.oneLine}>
         <Text>Latitude: </Text>
-        <TextInput value={location.latitude} onChange={(v) => chLocation("latitude",v)}/>
+        <TextInput value={location.latitude} onChangeText={(v) => chLocation("latitude",v)}/>
       </View>
       <View style={styles.oneLine}>
         <Text>Longitude: </Text>
-        <TextInput value={location.longitude} onChange={(v) => chLocation("longitude",v)}/>
+        <TextInput value={location.longitude} onChangeText={(v) => chLocation("longitude",v)}/>
       </View>
       <View style={styles.centerButton}>
         <SvgButton style={styles.mapButton} viewBox="-2 -2 20 20" onClick={getLocation}>
@@ -73,11 +39,3 @@ const styles = StyleSheet.create({
     aspectRatio: 1
   }
 });
-
-function notNull(element){
-  if(element == null || (element == undefined || element == NaN)){
-    return 0;
-  }else{
-    return element;
-  }
-}
