@@ -31,6 +31,10 @@ export default function Clima() {
     }
   );
 
+  useEffect(() => {
+      getClima();
+  },[location]);
+
   const getClima = async () => {
     try{
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=4a5e740c6f08a4f54f1c87f1fe6b7bd3&units=metric`)
@@ -91,6 +95,7 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   table: {
+    marginBottom: "3%"
   },
   row: {
     flexDirection: "row"

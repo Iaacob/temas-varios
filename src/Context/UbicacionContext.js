@@ -11,8 +11,8 @@ export function UbicacionProvider(props){
       let {coords} = await Location.getCurrentPositionAsync();
 
       setLocation({
-        latitude: notNull(coords.latitude),
-        longitude: notNull(coords.longitude),
+        latitude: onlyNumbers(coords.latitude),
+        longitude: onlyNumbers(coords.longitude),
         coords: coords
       });
 
@@ -21,7 +21,7 @@ export function UbicacionProvider(props){
 
   const chLocation = (r, v) => {
     let newObj = structuredClone(location);
-    newObj[r] = v;
+    newObj[r] = onlyNumbers(v);
     setLocation(newObj);
   }
 
@@ -35,10 +35,10 @@ export function UbicacionProvider(props){
         </UbicacionContext.Provider>);
 }
 
-function notNull(element){
-  if(element == null || (element == undefined || element == NaN)){
+function onlyNumbers(element){
+  if(isNaN(parseFloat(element))){
     return 0;
   }else{
-    return element;
+    return parseFloat(element);
   }
 }
