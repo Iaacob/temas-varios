@@ -101,9 +101,9 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   cell: {
-    border: "solid 0.5px",
+    border: "solid",
     width: "50%",
-    padding: "3px"
+    padding: "1%"
   },
   mapButton: {
     width: "20%",

@@ -20,6 +20,7 @@ export default function PantallaInicio() {
             </View>
             <View style={styles.container}>
                 <TextButton style={styles.button} onClick={() => setPantalla("contactos")}>Ver contactos</TextButton>
+                <TextButton style={styles.button} onClick={() => setPantalla("qr")}>Crear código QR</TextButton>
             </View>
             <View style={styles.container}>
                 <Ubicacion/>
@@ -37,7 +38,6 @@ const styles = {
         margin: 3
     },
     input: {
-        border: "solid 1px",
         padding: 3
     },
     button: {

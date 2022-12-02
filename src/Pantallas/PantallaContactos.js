@@ -89,9 +89,9 @@ const styles = {
     },
     contacto: {
         backgroundColor: "lightblue",
-        padding: "8px",
-        margin: "4px",
-        border: "solid 1px"
+        padding: "10%",
+        margin: "5%",
+        border: "solid"
     },
     emergencia: {
         color: "red",
@@ -99,7 +99,7 @@ const styles = {
         textDecorationLine: "underline"
     },
     input: {
-        border: "solid 1px",
+        border: "solid",
         padding: 3
     },
     button: {

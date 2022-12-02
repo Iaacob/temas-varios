@@ -39,6 +39,6 @@ function onlyNumbers(element){
   if(isNaN(parseFloat(element))){
     return 0;
   }else{
-    return parseFloat(element);
+    return -180 < parseFloat(element) < 180 ? parseFloat(element) : 0;
   }
 }

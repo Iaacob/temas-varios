@@ -25,7 +25,7 @@ const styles = {
         margin: 3
     },
     input: {
-        border: "solid 1px",
+        border: "solid",
         padding: 3
     },
     button: {

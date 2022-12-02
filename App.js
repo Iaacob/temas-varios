@@ -7,7 +7,7 @@ import { PantallaContext, PantallaProvider } from "./src/Context/PantallaContext
 import PantallaInicio from './src/Pantallas/PantallaInicio.js';
 import PantallaEmergencia from './src/Pantallas/PantallaEmergencia.js';
 import PantallaContactos from './src/Pantallas/PantallaContactos.js';
-import PantallaImagePicker from "./src/Pantallas/PantallaImagePicker.js";
+import PantallaQR from "./src/Pantallas/PantallaQR.js";
 import { UbicacionProvider } from "./src/Context/UbicacionContext";
 
 export default function App() {
@@ -25,16 +25,19 @@ export default function App() {
 }
 
 function PantallaCorrespondiente(){
-  const {pantalla} = useContext(PantallaContext);
+  const {pantalla, setPantalla} = useContext(PantallaContext);
   switch(pantalla){
     case "inicio":
       return (<PantallaInicio/>);
     case "emergencia":
       return (<PantallaEmergencia/>);
-      case "contactos":
-        return (<PantallaContactos/>);
-      case "background": 
-        return (<PantallaImagePicker/>)
+    case "contactos":
+      return (<PantallaContactos/>);
+    case "qr": 
+      return (<PantallaQR/>);
+    default:
+      setPantalla("inicio");
+      return (<PantallaInicio/>);
   }
 }
 
